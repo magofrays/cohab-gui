@@ -13,12 +13,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Task {
-	String title;
-	String description;
-	LocalDateTime created;
-	LocalDateTime deadline;
-	Boolean signedForCheck;
-	Boolean checked;
-	UUID createdBy;
-	Priority priority;
+	private String title;
+	private String description;
+	private LocalDateTime created;
+	private LocalDateTime deadline;
+	private Boolean signedForCheck;
+	private Boolean checked;
+	private UUID createdBy;
+	private Priority priority;
 }

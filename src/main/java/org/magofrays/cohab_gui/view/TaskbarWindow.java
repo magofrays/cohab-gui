@@ -20,6 +20,7 @@ public class TaskbarWindow extends JPanel {
     public TaskbarWindow() {
         taskComponents = new ArrayList<>();
         initializeComponents();
+        setVisible(true);
     }
     
     private void initializeComponents() {

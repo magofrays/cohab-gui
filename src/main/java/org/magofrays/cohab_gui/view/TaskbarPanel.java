@@ -12,68 +12,48 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 
-public class TaskbarWindow extends JPanel {
-    private static final long serialVersionUID = -4327288042877312792L;
+public class TaskbarPanel extends JPanel {
 	private JPanel tasksContainer;
-    private List<TaskComponent> taskComponents;
+    private final List<TaskPanel> taskPanels;
     
-    public TaskbarWindow() {
-        taskComponents = new ArrayList<>();
+    public TaskbarPanel() {
+        setLayout(new BorderLayout());
+        taskPanels = new ArrayList<>();
         initializeComponents();
-        setVisible(true);
+        setPreferredSize(new Dimension(400, 400));
+        setMaximumSize(new Dimension(400, 400));
     }
     
     private void initializeComponents() {
-        setLayout(new BorderLayout());
-        
         tasksContainer = new JPanel();
         tasksContainer.setLayout(new BoxLayout(tasksContainer, BoxLayout.Y_AXIS));
         tasksContainer.setBackground(Color.WHITE);
-        
         JScrollPane scrollPane = new JScrollPane(tasksContainer);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.getVerticalScrollBar().setUnitIncrement(16);
-        
-        add(scrollPane, BorderLayout.CENTER);
+        scrollPane.setMaximumSize(new Dimension(400, 400));
+        add(scrollPane);
     }
     
-    public void addTaskComponent(TaskComponent taskComponent) {
-        taskComponents.add(taskComponent);
-        tasksContainer.add(taskComponent);
-        
-        if (taskComponents.size() > 1) {
-            tasksContainer.add(createSeparator());
-        }
+    public void addTaskComponent(TaskPanel taskPanel) {
+        taskPanels.add(taskPanel);
+        tasksContainer.add(taskPanel);
+
         
         refreshLayout();
     }
     
-    public void removeTaskComponent(TaskComponent taskComponent) {
-        taskComponents.remove(taskComponent);
-        tasksContainer.remove(taskComponent);
-        
-        removeSeparators();
-        addSeparators();
-        
+    public void removeTaskComponent(TaskPanel taskPanel) {
+        taskPanels.remove(taskPanel);
+        tasksContainer.remove(taskPanel);
         refreshLayout();
     }
     
     public void clearTasks() {
-        taskComponents.clear();
+        taskPanels.clear();
         tasksContainer.removeAll();
         refreshLayout();
-    }
-    
-    public List<TaskComponent> getTaskComponents() {
-        return new ArrayList<>(taskComponents);
-    }
-    
-    private JSeparator createSeparator() {
-        JSeparator separator = new JSeparator();
-        separator.setMaximumSize(new Dimension(Integer.MAX_VALUE, 1));
-        separator.setBackground(Color.LIGHT_GRAY);
-        return separator;
     }
     
     private void removeSeparators() {
@@ -86,11 +66,9 @@ public class TaskbarWindow extends JPanel {
     }
     
     private void addSeparators() {
-        for (int i = 0; i < taskComponents.size(); i++) {
-            tasksContainer.add(taskComponents.get(i));
-            if (i < taskComponents.size() - 1) {
-                tasksContainer.add(createSeparator());
-            }
+        for (int i = 0; i < taskPanels.size(); i++) {
+            tasksContainer.add(taskPanels.get(i));
+
         }
     }
     
@@ -100,7 +78,7 @@ public class TaskbarWindow extends JPanel {
     }
     
     public void refreshAllComponents() {
-        for (TaskComponent tc : taskComponents) {
+        for (TaskPanel tc : taskPanels) {
             tc.updateView();
         }
         refreshLayout();

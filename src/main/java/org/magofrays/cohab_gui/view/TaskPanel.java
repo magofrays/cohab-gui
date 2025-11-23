@@ -1,10 +1,7 @@
 package org.magofrays.cohab_gui.view;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
+import java.awt.*;
+import java.io.Serial;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -19,8 +16,7 @@ import org.magofrays.cohab_gui.model.Task;
 
 
 
-public class TaskComponent extends JPanel {
-	private static final long serialVersionUID = -5126330242469238805L;
+public class TaskPanel extends JPanel {
 	Task task;
 	JLabel titleLabel;
 	JLabel descrLabel;
@@ -30,29 +26,30 @@ public class TaskComponent extends JPanel {
 	JCheckBox checked;
 	JLabel endLabel;
 		
-	public TaskComponent(Task task) {
+	public TaskPanel(Task task) {
         this.task = task;
         initializeComponents();
         setupLayout();
         updateView();
-        setVisible(true);
+        setMaximumSize(new Dimension(400, 100));
+        setAlignmentX(Component.LEFT_ALIGNMENT);
     }
     
     private void initializeComponents() {
         titleLabel = new JLabel();
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 14));
+        titleLabel.setFont(new Font("Ubuntu Mono", Font.BOLD, 20));
         endLabel = new JLabel();
-        endLabel.setFont(new Font("Arial", Font.PLAIN, 12));
-        endLabel.setForeground(Color.GRAY);
+        endLabel.setFont(new Font("Ubuntu Mono", Font.PLAIN, 15));
+        endLabel.setForeground(new Color(123, 245, 255));
        
         timeProgressBar = new JProgressBar(0, 100);
         timeProgressBar.setPreferredSize(new Dimension(80, 12));
         timeProgressBar.setStringPainted(true);
 
         signForCheck = new JCheckBox();
-        signForCheck.addActionListener(e -> onCompletionToggle());
+//        signForCheck.addActionListener(e -> onCompletionToggle());
         checked = new JCheckBox();
-        checked.addActionListener(e -> onCheckedToggle());
+//        checked.addActionListener(e -> onCheckedToggle());
         this.add(titleLabel);
         this.add(endLabel);
         this.add(timeProgressBar);
@@ -61,9 +58,9 @@ public class TaskComponent extends JPanel {
     }
     
     private void setupLayout() {
-        setLayout(new BorderLayout(8, 4));
+        setLayout(new BorderLayout());
         setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1),
+            BorderFactory.createLineBorder(Color.LIGHT_GRAY, 2),
             BorderFactory.createEmptyBorder(8, 8, 8, 8)
         ));
 
@@ -157,8 +154,5 @@ public class TaskComponent extends JPanel {
         // TODO: добавьте логику для второго чекбокса
         System.out.println("Second checkbox toggled");
     }
-    
-    public Task getTask() {
-        return task;
-    }
+
 }

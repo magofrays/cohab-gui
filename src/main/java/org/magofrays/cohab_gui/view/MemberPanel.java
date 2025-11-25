@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.time.format.DateTimeFormatter;
 
-public class MemberPanel extends JPanel {
+public class MemberPanel extends ContainerComponent {
 
     private final Member member;
     private JLabel username;
@@ -17,6 +17,7 @@ public class MemberPanel extends JPanel {
     public MemberPanel(Member member){
         this.member = member;
         initComponents();
+        setMaximumSize(new Dimension(400, 100));
     }
 
     private void initComponents(){
@@ -26,7 +27,7 @@ public class MemberPanel extends JPanel {
         birthDate = new JLabel(member.getBirthDate().format(DateTimeFormatter.ISO_DATE));
 
         setLayout(new BorderLayout());
-        setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
+//        setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
 
         // Панель для основной информации
         JPanel infoPanel = new JPanel(new GridLayout(3, 2, 5, 5));

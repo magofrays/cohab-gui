@@ -5,8 +5,8 @@ import java.time.LocalDateTime;
 
 import javax.swing.*;
 
-import org.magofrays.cohab_gui.model.dto.Member;
-import org.magofrays.cohab_gui.model.dto.Task;
+import org.magofrays.cohab_gui.model.dto.member.Member;
+import org.magofrays.cohab_gui.model.dto.task.Task;
 import org.springframework.stereotype.Component;
 
 @Component

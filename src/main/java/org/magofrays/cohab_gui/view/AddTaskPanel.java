@@ -2,8 +2,8 @@ package org.magofrays.cohab_gui.view;
 
 import javax.swing.*;
 
-import org.magofrays.cohab_gui.model.dto.Priority;
-import org.magofrays.cohab_gui.model.dto.Task;
+import org.magofrays.cohab_gui.model.dto.task.Priority;
+import org.magofrays.cohab_gui.model.dto.task.Task;
 
 import java.awt.*;
 import java.time.LocalDateTime;

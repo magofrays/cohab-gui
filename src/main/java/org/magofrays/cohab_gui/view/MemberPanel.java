@@ -2,7 +2,7 @@ package org.magofrays.cohab_gui.view;
 
 import javax.swing.*;
 
-import org.magofrays.cohab_gui.model.dto.Member;
+import org.magofrays.cohab_gui.model.dto.member.Member;
 
 import java.awt.*;
 import java.time.format.DateTimeFormatter;

@@ -2,7 +2,7 @@ package org.magofrays.cohab_gui.model;
 
 import javax.swing.DefaultListModel;
 
-import org.magofrays.cohab_gui.model.dto.Member;
+import org.magofrays.cohab_gui.model.dto.member.Member;
 import org.springframework.stereotype.Component;
 
 

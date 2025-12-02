@@ -1,4 +1,4 @@
-package org.magofrays.cohab_gui.model.dto;
+package org.magofrays.cohab_gui.model.dto.auth;
 
 import java.time.LocalDateTime;
 

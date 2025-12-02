@@ -3,9 +3,9 @@ package org.magofrays.cohab_gui.model;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-import org.magofrays.cohab_gui.model.dto.JwtToken;
-import org.magofrays.cohab_gui.model.dto.LoginResponse;
-import org.magofrays.cohab_gui.model.dto.Member;
+import org.magofrays.cohab_gui.model.dto.auth.JwtToken;
+import org.magofrays.cohab_gui.model.dto.auth.LoginResponse;
+import org.magofrays.cohab_gui.model.dto.member.Member;
 import org.springframework.stereotype.Component;
 
 import lombok.Getter;

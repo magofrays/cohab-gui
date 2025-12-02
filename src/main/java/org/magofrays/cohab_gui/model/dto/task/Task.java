@@ -1,4 +1,4 @@
-package org.magofrays.cohab_gui.model;
+package org.magofrays.cohab_gui.model.dto.task;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Task {
+    private UUID id;
 	private String title;
 	private String description;
 	private LocalDateTime created;
@@ -20,5 +21,6 @@ public class Task {
 	private Boolean signedForCheck;
 	private Boolean checked;
 	private UUID createdBy;
+    private UUID assignedTo;
 	private Priority priority;
 }

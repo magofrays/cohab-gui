@@ -1,7 +1,6 @@
 package org.magofrays.cohab_gui.view;
 
 import java.awt.*;
-import java.io.Serial;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -12,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
-import org.magofrays.cohab_gui.model.dto.Task;
+import org.magofrays.cohab_gui.model.dto.task.Task;
 
 
 

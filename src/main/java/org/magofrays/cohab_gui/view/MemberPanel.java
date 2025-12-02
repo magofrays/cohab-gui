@@ -1,12 +1,13 @@
 package org.magofrays.cohab_gui.view;
 
-import org.magofrays.cohab_gui.model.Member;
-
 import javax.swing.*;
+
+import org.magofrays.cohab_gui.model.dto.Member;
+
 import java.awt.*;
 import java.time.format.DateTimeFormatter;
 
-public class MemberPanel extends JPanel {
+public class MemberPanel extends ContainerComponent {
 
     private final Member member;
     private JLabel username;
@@ -17,6 +18,7 @@ public class MemberPanel extends JPanel {
     public MemberPanel(Member member){
         this.member = member;
         initComponents();
+        setMaximumSize(new Dimension(400, 100));
     }
 
     private void initComponents(){
@@ -26,8 +28,9 @@ public class MemberPanel extends JPanel {
         birthDate = new JLabel(member.getBirthDate().format(DateTimeFormatter.ISO_DATE));
 
         setLayout(new BorderLayout());
-        setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
+//        setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
 
+        // Панель для основной информации
         JPanel infoPanel = new JPanel(new GridLayout(3, 2, 5, 5));
         infoPanel.add(new JLabel("Username:"));
         infoPanel.add(username);
@@ -36,21 +39,23 @@ public class MemberPanel extends JPanel {
         infoPanel.add(new JLabel("Last Name:"));
         infoPanel.add(lastname);
 
+        // Панель для даты рождения
         JPanel birthPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         birthPanel.add(new JLabel("Birth Date:"));
         birthPanel.add(birthDate);
 
+        // Компоновка
         add(infoPanel, BorderLayout.CENTER);
         add(birthPanel, BorderLayout.SOUTH);
 
-        
+        // Устанавливаем отступы
         setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(Color.GRAY, 1),
                 BorderFactory.createEmptyBorder(10, 10, 10, 10)
         ));
     }
 
-    
+    // Метод для обновления данных, если member изменится
     public void updateMemberInfo() {
         username.setText(member.getUsername());
         firstname.setText(member.getFirstname());

@@ -12,11 +12,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
-import org.magofrays.cohab_gui.model.Task;
+import org.magofrays.cohab_gui.model.dto.Task;
 
 
 
-public class TaskPanel extends JPanel {
+public class TaskPanel extends ContainerComponent {
 	Task task;
 	JLabel titleLabel;
 	JLabel descrLabel;

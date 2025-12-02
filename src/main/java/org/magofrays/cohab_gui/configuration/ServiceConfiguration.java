@@ -8,8 +8,8 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Configuration
 public class ServiceConfiguration {
 	@Value("${web-client.base-url}")
-	private static String BASE_URL;
-	
+	private String BASE_URL;
+
 	@Bean
 	public WebClient webClientWithTimeout() {
 		return WebClient.builder()
@@ -17,5 +17,5 @@ public class ServiceConfiguration {
 //				.filter(new WebClientFilter())
 				.build();
 	}
-	
+
 }

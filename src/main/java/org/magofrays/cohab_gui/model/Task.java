@@ -20,6 +20,5 @@ public class Task {
 	private Boolean signedForCheck;
 	private Boolean checked;
 	private UUID createdBy;
-    private UUID assignedTo;
 	private Priority priority;
 }

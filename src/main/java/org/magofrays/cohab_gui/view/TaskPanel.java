@@ -16,7 +16,7 @@ import org.magofrays.cohab_gui.model.Task;
 
 
 
-public class TaskPanel extends ContainerComponent {
+public class TaskPanel extends JPanel {
 	Task task;
 	JLabel titleLabel;
 	JLabel descrLabel;

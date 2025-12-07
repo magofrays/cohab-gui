@@ -39,8 +39,6 @@ public class TaskbarPanel extends JPanel {
     public void addTaskComponent(TaskPanel taskPanel) {
         taskPanels.add(taskPanel);
         tasksContainer.add(taskPanel);
-
-        
         refreshLayout();
     }
     
@@ -55,23 +53,7 @@ public class TaskbarPanel extends JPanel {
         tasksContainer.removeAll();
         refreshLayout();
     }
-    
-    private void removeSeparators() {
-        Component[] components = tasksContainer.getComponents();
-        for (Component comp : components) {
-            if (comp instanceof JSeparator) {
-                tasksContainer.remove(comp);
-            }
-        }
-    }
-    
-    private void addSeparators() {
-        for (int i = 0; i < taskPanels.size(); i++) {
-            tasksContainer.add(taskPanels.get(i));
 
-        }
-    }
-    
     private void refreshLayout() {
         tasksContainer.revalidate();
         tasksContainer.repaint();
